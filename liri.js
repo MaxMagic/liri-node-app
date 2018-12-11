@@ -77,8 +77,10 @@ var liri = {
                 return console.log(error);
             };
             var myData = data.split(',');
+            console.log(myData[0], myData[1]);
 
-            liri[myData[0]]();
+
+            liri[myData[0]](myData[1]);
         });
     }
 };
