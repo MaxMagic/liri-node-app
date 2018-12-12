@@ -39,35 +39,35 @@ This option reads the imformation in an attached file and performs that action.
 
 Following your choice of query, enter in the title of the band, song or movie that you would like more information about.
 
-![alt text](images/second_image)
+![ScreenShot](images/second_image.png)
 
 ...And your result will look like this:
 
-![alt text](images/third_image)
+![ScreenShot](images/third_image.png)
 
 This works for all options:
 
-![alt text](images/fourth_image)
+![ScreenShot](images/fourth_image.png)
 
 Result:
 
-![alt text](images/fifth_image)
+![ScreenShot](images/fifth_image.png)
 
 Movies:
 
-![alt text](images/sixth_image)
+![ScreenShot](images/sixth_image.png)
 
 Result:
 
-![alt text](images/seventh_image)
+![ScreenShot](images/seventh_image.png)
 
 Even Random:
 
-![alt text](images/eighth_image)
+![ScreenShot](images/eighth_image.png)
 
 Result:
 
-![alt text](images/ninth_image)
+![ScreenShot](images/ninth_image.png)
 
 
 And that's it! Enjoy!
