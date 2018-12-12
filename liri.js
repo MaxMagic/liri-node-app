@@ -6,7 +6,7 @@ var Spotify = require('node-spotify-api');
 var fs = require('fs');
 
 var spotify = new Spotify(keys.spotify);
-// Need to display: Artist(s), The song's name, A preview link of the song from Spotify, The album that the song is from
+
 // If no song is provided then your program will default to "The Sign" by Ace of Base.
 
 var results = process.argv;
@@ -44,11 +44,12 @@ var liri = {
         for(var i = 3; i < results.length; i++){
             convertedSong.push(results[i]);
         };
+
         var song = convertedSong.join(" ");
 
         spotify.search({ type: 'track', query: song, limit: 1 }, function(err, data) {
             if (err) {
-                console.log(err);
+                return console.log(err);
             } 
             // Artist
             console.log(`Artist: ${data.tracks.items[0].album.artists[0].name}`);
@@ -67,36 +68,36 @@ var liri = {
         for(var i = 3; i < results.length; i++){
             convertedMovie.push(results[i]);
         };
-            console.log(convertedMovie);
-            var movie = convertedMovie.join(" ");
-            axios.get(`http://www.omdbapi.com/?apikey=${process.env.OMDB_KEY}&t=${movie}`).then(function(response, error) {
-                if (error) {
-                    return console.log('Error occurred: ' + error);
-                }
-                // Movie Title
-                console.log(`Movie: ${response.data.Title}`);
+            
+        var movie = convertedMovie.join(" ");
+        axios.get(`http://www.omdbapi.com/?apikey=${process.env.OMDB_KEY}&t=${movie}`).then(function(response, error) {
+            if (error) {
+                return console.log('Error occurred: ' + error);
+            }
+            // Movie Title
+            console.log(`Movie: ${response.data.Title}`);
 
-                // Release Year
-                console.log(`Released: ${response.data.Year}`);
+            // Release Year
+            console.log(`Released: ${response.data.Year}`);
 
-                // IMDB Rating
-                console.log(`IMDB Rating: ${response.data.imdbRating}`);
+            // IMDB Rating
+            console.log(`IMDB Rating: ${response.data.imdbRating}`);
 
-                // Rotten Tomatoes
-                console.log(`Rotten Tomatoes Score: ${response.data.Ratings[1].Value}`);
+            // Rotten Tomatoes
+            console.log(`Rotten Tomatoes Score: ${response.data.Ratings[1].Value}`);
 
-                // Country of Production
-                console.log(`Country of Origin: ${response.data.Country}`);
+            // Country of Production
+            console.log(`Country of Origin: ${response.data.Country}`);
 
-                // Movie Language
-                console.log(`Languages: ${response.data.Language}`);
+            // Movie Language
+            console.log(`Languages: ${response.data.Language}`);
 
-                // Plot
-                console.log(`Plot: ${response.data.Plot}`);
+            // Plot
+            console.log(`Plot: ${response.data.Plot}`);
 
-                // Actors
-                console.log(`Actors: ${response.data.Actors}`);
-            });
+            // Actors
+            console.log(`Actors: ${response.data.Actors}`);
+        });
     },
     'do-what-it-says': function(){
         fs.readFile("random.txt", "utf8", function(error, data){
