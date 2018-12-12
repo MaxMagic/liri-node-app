@@ -23,7 +23,7 @@ And that's it! All code for the inclusion of .env files has already been include
 
 To use the node application, open your terminal and run the liri.js file. 
 
-![alt text](images/first_image)
+![ScreenShot](images/first_image.png)
 
 Then, enter one of three options depending on your desired outcome:
 
