@@ -10,11 +10,12 @@ Clone the repository and install all the dependencies!
 
 In order to use the application, you will need to apply for and receive API keys for the Spotify, Bands In Town and OMDB APIs. Once you have received all three keys, create a .env file listing any access information for your APIs.
 
-```
 Example:
+
 ```
 SPOTIFY_ID=your-spotify-id
 SPOTIFY_SECRET=your-spotify-secret
+```
 
 And that's it! All code for the inclusion of .env files has already been included :).
 
@@ -23,7 +24,6 @@ And that's it! All code for the inclusion of .env files has already been include
 To use the node application, open your terminal and run the liri.js file. 
 
 ![alt text](/images/first_image)
-```
 
 Then, enter one of three options depending on your desired outcome:
 
@@ -40,41 +40,35 @@ This option reads the imformation in an attached file and performs that action.
 Following your choice of query, enter in the title of the band, song or movie that you would like more information about.
 
 ![alt text](/images/second_image)
-```
 
 ...And your result will look like this:
 
 ![alt text](/images/third_image)
-```
 
 This works for all options:
 
 ![alt text](/images/fourth_image)
-```
 
 Result:
 
 ![alt text](/images/fifth_image)
-```
+
 Movies:
 
 ![alt text](/images/sixth_image)
-```
 
 Result:
 
 ![alt text](/images/seventh_image)
-```
 
 Even Random:
 
 ![alt text](/images/eighth_image)
-```
 
 Result:
 
 ![alt text](/images/ninth_image)
-```
+
 
 And that's it! Enjoy!
 
