@@ -36,16 +36,23 @@ var liri = {
         for(var i = 3; i < results.length; i++){
             convertedSong.push(results[i]);
         };
-
-        console.log(convertedSong);
         var song = convertedSong.join(" ");
-        console.log(song);
-        spotify.search({ type: 'track', query: song, limit: 5 }, function(response, error) {
-            if (error) {
-                console.log(error);
-                console.log('Error occurred: ' + error.tracks.items[0]);
+
+        spotify.search({ type: 'track', query: song, limit: 1 }, function(err, data) {
+            if (err) {
+                console.log(err);
             } 
-            return console.log(response); 
+            // Artist
+            console.log(`Artist: ${data.tracks.items[0].album.artists[0].name}`);
+
+            // Song Name
+            console.log(`Song: ${data.tracks.items[0].name}`);
+
+            // Preview Link
+            console.log(`Preview Link: ${data.tracks.items[0].external_urls.spotify}`);
+
+            //Album
+            console.log(`Album: ${data.tracks.items[0].album.name}`);    
         });
     },
     'movie-this': function(){

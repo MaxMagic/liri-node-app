@@ -1,5 +1,3 @@
-console.log('this is loaded');
-
 var exports = module.exports = {};
 
 exports.spotify = {
