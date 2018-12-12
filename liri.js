@@ -73,17 +73,29 @@ var liri = {
                 if (error) {
                     return console.log('Error occurred: ' + error);
                 }
-                /*  * Title of the movie.
-                    * Year the movie came out.
-                    * IMDB Rating of the movie.
-                    * Rotten Tomatoes Rating of the movie.
-                    * Country where the movie was produced.
-                    * Language of the movie.
-                    * Plot of the movie.
-                    * Actors in the movie.
-                    * If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'
-                */
-                console.log(response.data);
+                // Movie Title
+                console.log(`Movie: ${response.data.Title}`);
+
+                // Release Year
+                console.log(`Released: ${response.data.Year}`);
+
+                // IMDB Rating
+                console.log(`IMDB Rating: ${response.data.imdbRating}`);
+
+                // Rotten Tomatoes
+                console.log(`Rotten Tomatoes Score: ${response.data.Ratings[1].Value}`);
+
+                // Country of Production
+                console.log(`Country of Origin: ${response.data.Country}`);
+
+                // Movie Language
+                console.log(`Languages: ${response.data.Language}`);
+
+                // Plot
+                console.log(`Plot: ${response.data.Plot}`);
+
+                // Actors
+                console.log(`Actors: ${response.data.Actors}`);
             });
     },
     'do-what-it-says': function(){
