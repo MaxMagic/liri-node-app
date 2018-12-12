@@ -7,14 +7,15 @@ var fs = require('fs');
 
 var spotify = new Spotify(keys.spotify);
 
-// If no song is provided then your program will default to "The Sign" by Ace of Base.
-
 var results = process.argv;
 var operation = results[2];
 
 var convertedBand = [];
 var convertedSong = [];
 var convertedMovie = [];
+
+var song;
+var movie;
 
 var liri = {
     'concert-this': function(){
@@ -41,12 +42,16 @@ var liri = {
         });
     },
     'spotify-this-song': function(){
-        for(var i = 3; i < results.length; i++){
-            convertedSong.push(results[i]);
+        if (process.argv[3] === undefined){
+            // Defauts to "The Sign"
+            song = "The Sign";
+        } else {
+            for(var i = 3; i < results.length; i++){
+                convertedSong.push(results[i]);
+            };
+            song = convertedSong.join(" ");
         };
-
-        var song = convertedSong.join(" ");
-
+            
         spotify.search({ type: 'track', query: song, limit: 1 }, function(err, data) {
             if (err) {
                 return console.log(err);
@@ -62,14 +67,19 @@ var liri = {
 
             //Album
             console.log(`Album: ${data.tracks.items[0].album.name}`);    
-        });
+        });   
     },
     'movie-this': function(){
-        for(var i = 3; i < results.length; i++){
-            convertedMovie.push(results[i]);
+        if (process.argv[3] === undefined){
+            // Defaults to "Mr. Nobody" 
+            movie = "Mr. Nobody";
+        } else {
+            for(var i = 3; i < results.length; i++){
+                convertedMovie.push(results[i]);
+            };
+            movie = convertedMovie.join(" ");
         };
-            
-        var movie = convertedMovie.join(" ");
+        
         axios.get(`http://www.omdbapi.com/?apikey=${process.env.OMDB_KEY}&t=${movie}`).then(function(response, error) {
             if (error) {
                 return console.log('Error occurred: ' + error);
