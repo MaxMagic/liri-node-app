@@ -14,9 +14,6 @@ var convertedBand = [];
 var convertedSong = [];
 var convertedMovie = [];
 
-var song;
-var movie;
-
 var liri = {
     'concert-this': function(){
         for(var i = 3; i < results.length; i++){
@@ -42,14 +39,14 @@ var liri = {
         });
     },
     'spotify-this-song': function(){
-        if (process.argv[3] === undefined){
+        if (results[3] === undefined){
             // Defauts to "The Sign"
-            song = "The Sign";
+            var song = "The Sign";
         } else {
             for(var i = 3; i < results.length; i++){
                 convertedSong.push(results[i]);
             };
-            song = convertedSong.join(" ");
+            var song = convertedSong.join(" ");
         };
             
         spotify.search({ type: 'track', query: song, limit: 1 }, function(err, data) {
@@ -70,14 +67,14 @@ var liri = {
         });   
     },
     'movie-this': function(){
-        if (process.argv[3] === undefined){
+        if (results[3] === undefined){
             // Defaults to "Mr. Nobody" 
-            movie = "Mr. Nobody";
+            var movie = "Mr. Nobody";
         } else {
             for(var i = 3; i < results.length; i++){
                 convertedMovie.push(results[i]);
             };
-            movie = convertedMovie.join(" ");
+            var movie = convertedMovie.join(" ");
         };
         
         axios.get(`http://www.omdbapi.com/?apikey=${process.env.OMDB_KEY}&t=${movie}`).then(function(response, error) {
