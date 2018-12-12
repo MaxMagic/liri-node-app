@@ -21,15 +21,23 @@ var liri = {
         for(var i = 3; i < results.length; i++){
             convertedBand.push(results[i]);
         };
-        console.log(convertedBand);
         
         var band = convertedBand.join(" ");
         axios.get(`https://rest.bandsintown.com/artists/${band}/events?app_id=${process.env.BANDS_ID}`).then(function( response, error) {
             if (error) {
                 return console.log('Error occurred: ' + error);
             }
-            // Need to display: Name of the venue, Venue location, Date of the Event (use moment to format this as "MM/DD/YYYY")
-            console.log(response.data);
+            // Intro
+            console.log(`The next ${band} concert will be located at:`)
+
+            // Name of venue
+            console.log(`${response.data[0].venue.name}`);
+
+            // Venue Location
+            console.log(`In ${response.data[0].venue.city}, ${response.data[0].venue.country}`);
+
+            // Date of event
+            console.log(`On ${response.data[0].datetime}`);
         });
     },
     'spotify-this-song': function(){
