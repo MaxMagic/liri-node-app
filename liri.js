@@ -26,21 +26,25 @@ var liri = {
             if (error) {
                 return console.log('Error occurred: ' + error);
             }
-            // Intro
-            console.log(`The next ${band} concert will be located at:`)
+            if (response.data[0] === undefined){
+                return console.log("Sorry! It looks like we couldn't find the artist you were looking for...");
+            } else {
+                // Intro
+                console.log(`The next ${band} concert will be located at:`);
 
-            // Name of venue
-            console.log(`${response.data[0].venue.name}`);
+                // Name of venue
+                console.log(`${response.data[0].venue.name}`);
 
-            // Venue Location
-            console.log(`In ${response.data[0].venue.city}, ${response.data[0].venue.country}`);
+                // Venue Location
+                console.log(`In ${response.data[0].venue.city}, ${response.data[0].venue.country}`);
 
-            // Date of event
-            var date = response.data[0].datetime;
-            var m = moment(date, "YYYY-MM-DD HH");
-            var time = m.format('MMM Do YYYY hh:mm a');
-        
-            console.log(`On ${time}`);
+                // Date of event
+                var date = response.data[0].datetime;
+                var m = moment(date, "YYYY-MM-DD HH");
+                var time = m.format('MMM Do YYYY hh:mm a');
+            
+                console.log(`On ${time}`);
+            }   
         });
     },
     'spotify-this-song': function(){
